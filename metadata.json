@@ -1,0 +1,6 @@
+{
+  "name": "Footprints",
+  "description": "Aggregate and monitor your technical footprint across GitHub and LeetCode. Track stats, solved problems, repositories, and followers in real-time in one sleek interface.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
