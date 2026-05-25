@@ -161,16 +161,8 @@ async function startServer() {
   const PORT = Number(process.env.PORT) || 3000;
 
   app.use(express.json());
-
-  // Serve robots.txt from root
-  app.get("/robots.txt", (req, res) => {
-    res.sendFile(path.join(__dirname, "robots.txt"));
-  });
-
-  // Serve Google verification file from root
-  app.get("/googled2e74ec2086c66f5.html", (req, res) => {
-    res.sendFile(path.join(__dirname, "googled2e74ec2086c66f5.html"));
-  });
+  // Serve static files from public folder (robots.txt, verification files, etc.)
+  app.use(express.static(path.join(__dirname, "public")));
 
   app.post("/api/fetch-profile", async (req, res) => {
     const { url } = req.body;
