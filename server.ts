@@ -162,6 +162,16 @@ async function startServer() {
 
   app.use(express.json());
 
+  // Serve robots.txt from root
+  app.get("/robots.txt", (req, res) => {
+    res.sendFile(path.join(__dirname, "robots.txt"));
+  });
+
+  // Serve Google verification file from root
+  app.get("/googled2e74ec2086c66f5.html", (req, res) => {
+    res.sendFile(path.join(__dirname, "googled2e74ec2086c66f5.html"));
+  });
+
   app.post("/api/fetch-profile", async (req, res) => {
     const { url } = req.body;
     if (!url || typeof url !== "string") {
