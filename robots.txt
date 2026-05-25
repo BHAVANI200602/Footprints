@@ -1,0 +1,6 @@
+# Allow all robots to crawl the site
+User-agent: *
+Allow: /
+
+# Sitemap: replace with your actual site URL
+Sitemap: https://footprints-rapk.onrender.com/
