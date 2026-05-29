@@ -19,7 +19,8 @@ import {
   Share2,
   Terminal,
   Grid,
-  Database
+  Database,
+  Linkedin
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { DeveloperProfile, Platform } from "./types";
@@ -812,15 +813,37 @@ export default function App() {
       <footer className="mt-auto bg-[#0a0a0a] border-t border-[#2c2c2c]/60 py-6">
         <div className="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-mono text-[#636363]">
           <div>
-            <span>Footprints - Secure local cataloging.</span>
+            <span>Footprints &mdash; Secure local cataloging.</span>
           </div>
           <div className="flex items-center gap-4">
             <span>Direct GitHub user API</span>
             <span>•</span>
             <span>LeetCode Official GraphQL</span>
           </div>
-          <div>
+          <div className="flex items-center gap-3">
             <span className="text-[#dfaa60]">Zero Authentication Required</span>
+            <div className="flex items-center gap-1.5 pl-3 border-l border-[#2c2c2c]">
+              <a
+                href="https://github.com/BHAVANI200602"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub profile of Bhavani Shankar"
+                title="GitHub – BHAVANI200602"
+                className="p-1.5 rounded-lg text-[#636363] hover:text-[#e2e2e2] hover:bg-[#1f1f1f] border border-transparent hover:border-[#2c2c2c] transition-all duration-200"
+              >
+                <Github className="w-4 h-4" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/bhavani-02-24-2006-shankar/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn profile of Bhavani Shankar"
+                title="LinkedIn – Bhavani Shankar"
+                className="p-1.5 rounded-lg text-[#636363] hover:text-[#8ab4d4] hover:bg-[#1f1f1f] border border-transparent hover:border-[#2c2c2c] transition-all duration-200"
+              >
+                <Linkedin className="w-4 h-4" />
+              </a>
+            </div>
           </div>
         </div>
       </footer>
