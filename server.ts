@@ -1,6 +1,11 @@
 import express from "express";
 import path from "path";
 import { createServer as createViteServer } from "vite";
+import { fileURLToPath } from "url";
+
+// Define __filename and __dirname for ES modules (import.meta.url)
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 function parseProfileUrl(urlStr: string) {
   let cleanUrl = urlStr.trim();
