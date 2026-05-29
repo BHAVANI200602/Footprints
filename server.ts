@@ -3,9 +3,20 @@ import path from "path";
 import { createServer as createViteServer } from "vite";
 import { fileURLToPath } from "url";
 
-// Define __filename and __dirname for ES modules (import.meta.url)
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// Define `__filename` and `__dirname` that work for both ESM and CJS outputs.
+let __filename: string;
+let __dirname: string;
+try {
+  // ESM environment: import.meta.url is available
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  __filename = fileURLToPath((import.meta as any).url);
+  __dirname = path.dirname(__filename);
+} catch (e) {
+  // CJS or bundled environment: fall back to process argv or cwd
+  __filename = process.argv && process.argv[1] ? path.resolve(process.argv[1]) : process.cwd();
+  __dirname = path.dirname(__filename);
+}
 
 function parseProfileUrl(urlStr: string) {
   let cleanUrl = urlStr.trim();
@@ -220,7 +231,7 @@ async function startServer() {
   } else {
     const distPath = path.join(process.cwd(), "dist");
     app.use(express.static(distPath));
-    app.get("*all", (req, res) => {
+    app.get("*", (req, res) => {
       res.sendFile(path.join(distPath, "index.html"));
     });
   }
